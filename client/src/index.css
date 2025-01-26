@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+
+/* Diamond clip path */
+.clip-diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  position: relative;
+  overflow: visible; /* Allow image to overflow */
+}
+
+/* Image styling */
+.diamond-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Apply borders on top and right */
+.clip-diamond::before {
+  content: '';
+  position: absolute;
+  background-color: #fb8501;
+  width: 100%;
+  height: 4px; /* Top border */
+  top: 0;
+  left: 0;
+}
+
+.clip-diamond::after {
+  content: '';
+  position: absolute;
+  background-color: #fb8501;
+  width: 4px; /* Right border */
+  height: 100%;
+  top: 0;
+  right: 0;
+}
